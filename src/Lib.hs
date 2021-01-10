@@ -1,6 +1,4 @@
-module Lib
-    ( someFunc
-    ) where
+{-# LANGUAGE FlexibleInstances #-}
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+module Lib where
+

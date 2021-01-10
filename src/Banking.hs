@@ -1,7 +1,6 @@
 module Banking (Transaction, Shell(..), run, createAcct, deposit, widthdraw) where
 
-import Control.Monad.Except
-import Lib
+import           Control.Monad.Except
 
 class Monad m => Shell m where
   readAcct  :: m Int
@@ -10,7 +9,7 @@ class Monad m => Shell m where
 type Transaction m = ExceptT String m Int
 
 run :: Shell m => Transaction m -> m (Either String Int)
-run t = runExceptT t 
+run t = runExceptT t
 
 createAcct :: Shell m => Int -> Transaction m
 createAcct amnt = do

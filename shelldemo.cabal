@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7fde549a42d721076f81fd48f7e811cc01e1641fa9504cea7420de438e2c61b2
+-- hash: 0963fb12550a053f0b0f345f57502bbed9dba6e71eab041bd1e760aa9dd30736
 
 name:           shelldemo
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Banking
       Lib
   other-modules:
       Paths_shelldemo
@@ -34,19 +35,20 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , hspec
     , mtl
   default-language: Haskell2010
 
 executable shelldemo-exe
   main-is: Main.hs
   other-modules:
-      Banking
       Paths_shelldemo
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , hspec
     , mtl
     , shelldemo
   default-language: Haskell2010
@@ -61,6 +63,7 @@ test-suite shelldemo-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , hspec
     , mtl
     , shelldemo
   default-language: Haskell2010
