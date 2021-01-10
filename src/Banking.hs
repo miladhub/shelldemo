@@ -9,7 +9,7 @@ class Monad m => Shell m where
 type Transaction m = ExceptT String m Int
 
 run :: Shell m => Transaction m -> m (Either String Int)
-run t = runExceptT t
+run = runExceptT
 
 createAcct :: Shell m => Int -> Transaction m
 createAcct amnt = do
@@ -17,7 +17,7 @@ createAcct amnt = do
     lift $ writeAcct amnt
     return amnt
   else
-    ExceptT $ return $ Left "Amount must be positive"
+    throwError "Amount must be positive"
 
 deposit :: Shell m => Int -> Transaction m
 deposit amnt = do
@@ -32,5 +32,5 @@ widthdraw amnt = do
     lift $ writeAcct (acct - amnt)
     return (acct - amnt)
   else
-    ExceptT $ return $ Left "Funds not sufficient"
+    throwError "Funds not sufficient"
 
