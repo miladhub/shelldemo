@@ -3,12 +3,11 @@ module Main where
 import           Banking
 
 main :: IO ()
-main = show <$> run t >>= putStrLn
-
-t :: Transaction IO
-t = do
-  createAcct 42
-  widthdraw 10
+main = do
+  result <- run $ do
+    createAcct 42
+    widthdraw 10
+  putStrLn (show result)
 
 instance Shell IO where
   readAcct  = readAcctIO
