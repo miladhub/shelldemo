@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0963fb12550a053f0b0f345f57502bbed9dba6e71eab041bd1e760aa9dd30736
+-- hash: 9a854f7ded87e34e7da24eee770341010bb716393e0e0f2ae2bdc93e25e1e4d5
 
 name:           shelldemo
 version:        0.1.0.0
@@ -28,7 +28,6 @@ source-repository head
 library
   exposed-modules:
       Banking
-      Lib
   other-modules:
       Paths_shelldemo
   hs-source-dirs:
